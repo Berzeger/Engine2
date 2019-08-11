@@ -1,2 +1,2 @@
-# Engine2
-Game Engine
+# Schwarz Engine
+A game engine
