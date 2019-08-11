@@ -1,2 +1,2 @@
-# Schwarz Engine
+# Running Engine
 A game engine
