@@ -1,9 +1,9 @@
 #pragma once
 #include "Core.h"
 
-namespace Engine
+namespace Running
 {
-	class ENGINE_API Application
+	class RUNNING_API Application
 	{
 	public:
 		Application();

@@ -1,6 +1,6 @@
 #include "Application.h"
 
-namespace Engine
+namespace Running
 {
 	Application::Application()
 	{

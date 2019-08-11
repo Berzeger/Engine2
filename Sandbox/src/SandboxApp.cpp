@@ -1,8 +1,8 @@
 #pragma once
 
-#include <Engine.h>
+#include <Running.h>
 
-class Sandbox : public Engine::Application
+class Sandbox : public Running::Application
 {
 public:
 	Sandbox() {}
@@ -10,7 +10,7 @@ public:
 
 };
 
-Engine::Application* Engine::CreateApplication()
+Running::Application* Running::CreateApplication()
 {
 	return new Sandbox();
 }

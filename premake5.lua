@@ -1,4 +1,4 @@
-workspace "Engine2"
+workspace "RunningEngine"
 	architecture "x64"
 	
 	configurations
@@ -8,10 +8,12 @@ workspace "Engine2"
 		"Dist"
 	}
 	
+	startproject "Sandbox"
+	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
-project "Engine2"
-	location "Engine2"
+project "Running"
+	location "Running"
 	kind "SharedLib"
 	language "C++"
 	
@@ -36,8 +38,8 @@ project "Engine2"
 		
 		defines
 		{
-			"ENGINE_PLATFORM_WINDOWS",
-			"ENGINE_BUILD_DLL"
+			"RUNNING_PLATFORM_WINDOWS",
+			"RUNNING_BUILD_DLL"
 		}
 		
 		postbuildcommands
@@ -46,15 +48,15 @@ project "Engine2"
 		}
 		
 	filter "configurations:Debug" 
-		defines "ENGINE_DEBUG"
+		defines "RUNNING_DEBUG"
 		symbols "On"
 		
 	filter "configurations:Release" 
-		defines "ENGINE_RELEASE"
+		defines "RUNNING_RELEASE"
 		optimize "On"
 		
 	filter "configurations:Dist" 
-		defines "ENGINE_DIST"
+		defines "RUNNING_DIST"
 		optimize "On"
 
 project "Sandbox"
@@ -73,13 +75,13 @@ project "Sandbox"
 	
 	includedirs
 	{
-		"Engine2/vendor/spdlog/include",
-		"Engine2/src"
+		"Running/vendor/spdlog/include",
+		"Running/src"
 	}
 	
 	links 
 	{
-		"Engine2"
+		"Running"
 	}
 	
 	filter "system:windows"
@@ -89,17 +91,17 @@ project "Sandbox"
 		
 		defines
 		{
-			"ENGINE_PLATFORM_WINDOWS"
+			"RUNNING_PLATFORM_WINDOWS"
 		}
 		
 	filter "configurations:Debug" 
-		defines "ENGINE_DEBUG"
+		defines "RUNNING_DEBUG"
 		symbols "On"
 		
 	filter "configurations:Release" 
-		defines "ENGINE_RELEASE"
+		defines "RUNNING_RELEASE"
 		optimize "On"
 		
 	filter "configurations:Dist" 
-		defines "ENGINE_DIST"
+		defines "RUNNING_DIST"
 		optimize "On"

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Running">
+      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Running.h" />
+    <ClInclude Include="src\Running\Application.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Core.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\EntryPoint.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Log.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Running\Application.cpp">
+      <Filter>Running</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Running\Log.cpp">
+      <Filter>Running</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
