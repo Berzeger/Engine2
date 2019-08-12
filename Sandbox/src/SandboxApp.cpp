@@ -12,5 +12,6 @@ public:
 
 Running::Application* Running::CreateApplication()
 {
+	RUNNING_CLIENT_INFO("AHoj!");
 	return new Sandbox();
 }

@@ -19,6 +19,8 @@
     <ClInclude Include="src\Running\Log.h">
       <Filter>Running</Filter>
     </ClInclude>
+    <ClInclude Include="src\Running\Events\Event.h" />
+    <ClInclude Include="src\Running\Events\ApplicationEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Running\Application.cpp">
