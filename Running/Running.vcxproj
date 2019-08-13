@@ -147,8 +147,11 @@
     <ClInclude Include="src\Running\Application.h" />
     <ClInclude Include="src\Running\Core.h" />
     <ClInclude Include="src\Running\EntryPoint.h" />
+    <ClInclude Include="src\Running\EnumBitwiseOperations.h" />
     <ClInclude Include="src\Running\Events\ApplicationEvent.h" />
     <ClInclude Include="src\Running\Events\Event.h" />
+    <ClInclude Include="src\Running\Events\KeyEvent.h" />
+    <ClInclude Include="src\Running\Events\MouseEvent.h" />
     <ClInclude Include="src\Running\Log.h" />
   </ItemGroup>
   <ItemGroup>

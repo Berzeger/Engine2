@@ -21,6 +21,9 @@
     </ClInclude>
     <ClInclude Include="src\Running\Events\Event.h" />
     <ClInclude Include="src\Running\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Running\Events\KeyEvent.h" />
+    <ClInclude Include="src\Running\EnumBitwiseOperations.h" />
+    <ClInclude Include="src\Running\Events\MouseEvent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Running\Application.cpp">
