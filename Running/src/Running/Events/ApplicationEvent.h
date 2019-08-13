@@ -5,7 +5,7 @@
 
 namespace Running
 {
-	class RUNNING_API WindowResizeEvent : Event
+	class RUNNING_API WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned width, unsigned height) :
@@ -24,8 +24,8 @@ namespace Running
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(EventType.WindowResize)
-		EVENT_CLASS_CATEGORY(EventCategory.EventCategoryApplication)
+		EVENT_CLASS_TYPE(WindowResize)
+		EVENT_CLASS_CATEGORY(EventCategoryApplication)
 
 	private:
 		unsigned _width;
