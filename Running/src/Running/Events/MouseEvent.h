@@ -1,7 +1,5 @@
 #pragma once
-
 #include "Event.h"
-#include <sstream>
 
 namespace Running
 {
@@ -26,7 +24,7 @@ namespace Running
 		}
 
 		EVENT_CLASS_TYPE(MouseMoved)
-			EVENT_CLASS_CATEGORY(EventCategory::EventCategoryMouse | EventCategory::EventCategoryInput)
+		EVENT_CLASS_CATEGORY(EventCategory::EventCategoryMouse | EventCategory::EventCategoryInput)
 
 	private:
 		float _mouseX, _mouseY;

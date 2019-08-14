@@ -1,8 +1,7 @@
 #pragma once
+#include "Running/Core.h"
 
-#include "../Core.h"
-#include <string>
-#include <functional>
+#include "Running/EnumBitwiseOperations.h"
 
 namespace Running
 {

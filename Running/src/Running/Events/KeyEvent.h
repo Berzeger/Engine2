@@ -1,8 +1,5 @@
 #pragma once
-
 #include "Event.h"
-#include "../EnumBitwiseOperations.h"
-#include <sstream>
 
 namespace Running
 {

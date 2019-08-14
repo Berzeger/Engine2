@@ -1,9 +1,8 @@
+#include "pch.h"
 #include "Application.h"
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
 #include "Events/MouseEvent.h"
-
-#include <iostream>
 
 namespace Running
 {

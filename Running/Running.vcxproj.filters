@@ -2,7 +2,10 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="Running">
-      <UniqueIdentifier>{DBC7D3B0-C769-FE86-B024-12DB9C6585D7}</UniqueIdentifier>
+      <UniqueIdentifier>{264BD7C4-922A-5660-9B42-E13607A1BCC1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Running\Events">
+      <UniqueIdentifier>{4A309033-36FE-8339-1F92-F45F0BFF5F9E}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -16,14 +19,25 @@
     <ClInclude Include="src\Running\EntryPoint.h">
       <Filter>Running</Filter>
     </ClInclude>
+    <ClInclude Include="src\Running\EnumBitwiseOperations.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Events\ApplicationEvent.h">
+      <Filter>Running\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Events\Event.h">
+      <Filter>Running\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Events\KeyEvent.h">
+      <Filter>Running\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Events\MouseEvent.h">
+      <Filter>Running\Events</Filter>
+    </ClInclude>
     <ClInclude Include="src\Running\Log.h">
       <Filter>Running</Filter>
     </ClInclude>
-    <ClInclude Include="src\Running\Events\Event.h" />
-    <ClInclude Include="src\Running\Events\ApplicationEvent.h" />
-    <ClInclude Include="src\Running\Events\KeyEvent.h" />
-    <ClInclude Include="src\Running\EnumBitwiseOperations.h" />
-    <ClInclude Include="src\Running\Events\MouseEvent.h" />
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Running\Application.cpp">
@@ -32,5 +46,6 @@
     <ClCompile Include="src\Running\Log.cpp">
       <Filter>Running</Filter>
     </ClCompile>
+    <ClCompile Include="src\pch.cpp" />
   </ItemGroup>
 </Project>
