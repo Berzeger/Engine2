@@ -12,6 +12,11 @@ workspace "RunningEngine"
 	
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 	
+IncludeDir = {}
+IncludeDir["GLFW"] = "Running/vendor/GLFW"
+
+include "Running/premakes/GLFW"
+	
 project "Running"
 	location "Running"
 	kind "SharedLib"
@@ -32,7 +37,14 @@ project "Running"
 	includedirs
 	{
 		"%{prj.name}/src",
-		"%{prj.name}/vendor/spdlog/include"
+		"%{prj.name}/vendor/spdlog/include",
+		"%{IncludeDir.GLFW}"
+	}
+	
+	links 
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 	
 	filter "system:windows"
