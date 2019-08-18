@@ -21,6 +21,7 @@ project "Running"
 	location "Running"
 	kind "SharedLib"
 	language "C++"
+	staticruntime "Off"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -49,7 +50,6 @@ project "Running"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 		
 		defines
@@ -60,7 +60,7 @@ project "Running"
 		
 		postbuildcommands
 		{
-			("{COPY} %{cfg.buildtarget.relpath} ../bin/" .. outputdir .. "/Sandbox")
+			("{COPY} %{cfg.buildtarget.relpath} \"../bin/" .. outputdir .. "/Sandbox/\"")
 		}
 		
 	filter "configurations:Debug" 
@@ -69,20 +69,24 @@ project "Running"
 			"RUNNING_DEBUG",
 			"RUNNING_ENABLE_ASSERTS"
 		}
+		runtime "Debug"
 		symbols "On"
 		
 	filter "configurations:Release" 
 		defines "RUNNING_RELEASE"
+		runtime "Release"
 		optimize "On"
 		
 	filter "configurations:Dist" 
 		defines "RUNNING_DIST"
+		runtime "Release"
 		optimize "On"
 
 project "Sandbox"
 	location "Sandbox"
 	kind "ConsoleApp"
 	language "C++"
+	staticruntime "Off"
 	
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
@@ -106,7 +110,6 @@ project "Sandbox"
 	
 	filter "system:windows"
 		cppdialect "C++17"
-		staticruntime "On"
 		systemversion "latest"
 		
 		defines
@@ -120,12 +123,15 @@ project "Sandbox"
 			"RUNNING_DEBUG",
 			"RUNNING_ENABLE_ASSERTS"
 		}
+		runtime "Debug"
 		symbols "On"
 		
 	filter "configurations:Release" 
 		defines "RUNNING_RELEASE"
+		runtime "Release"
 		optimize "On"
 		
 	filter "configurations:Dist" 
 		defines "RUNNING_DIST"
+		runtime "Release"
 		optimize "On"
