@@ -50,6 +50,8 @@
       <Filter>Running</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Running\Layer.h" />
+    <ClInclude Include="src\Running\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -62,5 +64,7 @@
       <Filter>Running</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Running\Layer.cpp" />
+    <ClCompile Include="src\Running\LayerStack.cpp" />
   </ItemGroup>
 </Project>

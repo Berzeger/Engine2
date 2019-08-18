@@ -159,6 +159,8 @@
     <ClInclude Include="src\Running\Events\Event.h" />
     <ClInclude Include="src\Running\Events\KeyEvent.h" />
     <ClInclude Include="src\Running\Events\MouseEvent.h" />
+    <ClInclude Include="src\Running\Layer.h" />
+    <ClInclude Include="src\Running\LayerStack.h" />
     <ClInclude Include="src\Running\Log.h" />
     <ClInclude Include="src\Running\Window.h" />
     <ClInclude Include="src\pch.h" />
@@ -166,6 +168,8 @@
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Running\Application.cpp" />
+    <ClCompile Include="src\Running\Layer.cpp" />
+    <ClCompile Include="src\Running\LayerStack.cpp" />
     <ClCompile Include="src\Running\Log.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
