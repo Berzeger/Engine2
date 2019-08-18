@@ -1,8 +1,5 @@
 #include "pch.h"
 #include "Application.h"
-#include "Events/ApplicationEvent.h"
-#include "Events/KeyEvent.h"
-#include "Events/MouseEvent.h"
 #include <GLFW/glfw3.h>
 
 namespace Running
@@ -10,11 +7,29 @@ namespace Running
 	Application::Application()
 	{
 		_window = std::unique_ptr<Window>(Window::Create());
+		_window->SetEventCallback([&](Event& e)
+		{
+			OnEvent(e);
+		});
 	}
 
 	Application::~Application()
 	{
 
+	}
+
+	void Application::OnEvent(Event& e)
+	{
+		EventDispatcher dispatcher(e);
+		dispatcher.Dispatch<WindowCloseEvent>(std::bind(&Application::OnWindowClose, this, std::placeholders::_1));
+
+		RUNNING_CORE_TRACE("{0}", e);
+	}
+
+	bool Application::OnWindowClose(WindowCloseEvent& e)
+	{
+		_running = false;
+		return true;
 	}
 
 	void Application::Run()

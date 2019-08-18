@@ -2,6 +2,9 @@
 #include "Core.h"
 #include "Log.h"
 #include "Window.h"
+#include "Events/ApplicationEvent.h"
+#include "Events/KeyEvent.h"
+#include "Events/MouseEvent.h"
 
 namespace Running
 {
@@ -12,8 +15,12 @@ namespace Running
 		virtual ~Application();
 
 		void Run();
+
+		void OnEvent(Event& e);
 		
 	private:
+		bool OnWindowClose(WindowCloseEvent& e);
+
 		std::unique_ptr<Window> _window;
 		bool _running = true;
 	};
