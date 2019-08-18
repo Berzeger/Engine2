@@ -38,7 +38,7 @@ project "Running"
 	{
 		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{IncludeDir.GLFW}"
+		"%{IncludeDir.GLFW}/include"
 	}
 	
 	links 
@@ -64,7 +64,11 @@ project "Running"
 		}
 		
 	filter "configurations:Debug" 
-		defines "RUNNING_DEBUG"
+		defines 
+		{
+			"RUNNING_DEBUG",
+			"RUNNING_ENABLE_ASSERTS"
+		}
 		symbols "On"
 		
 	filter "configurations:Release" 
@@ -111,7 +115,11 @@ project "Sandbox"
 		}
 		
 	filter "configurations:Debug" 
-		defines "RUNNING_DEBUG"
+		defines 
+		{
+			"RUNNING_DEBUG",
+			"RUNNING_ENABLE_ASSERTS"
+		}
 		symbols "On"
 		
 	filter "configurations:Release" 

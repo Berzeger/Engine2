@@ -3,12 +3,13 @@
 #include "Events/ApplicationEvent.h"
 #include "Events/KeyEvent.h"
 #include "Events/MouseEvent.h"
+#include <GLFW/glfw3.h>
 
 namespace Running
 {
 	Application::Application()
 	{
-
+		_window = std::unique_ptr<Window>(Window::Create());
 	}
 
 	Application::~Application()
@@ -18,14 +19,11 @@ namespace Running
 
 	void Application::Run()
 	{
-		WindowResizeEvent e(1024, 768);
-		RUNNING_CLIENT_TRACE(e);
-
-		KeyPressedEvent kpe(30, 0);
-		RUNNING_CLIENT_TRACE(kpe);
-
-		MouseButtonReleasedEvent mbre(1);
-		RUNNING_CLIENT_TRACE(mbre);
-		while (true);
+		while (_running)
+		{
+			glClearColor(1, 0, 1, 1);
+			glClear(GL_COLOR_BUFFER_BIT);
+			_window->OnUpdate();
+		}
 	}
 }

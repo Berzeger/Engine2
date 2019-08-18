@@ -1,6 +1,7 @@
 #pragma once
 #include "Core.h"
 #include "Log.h"
+#include "Window.h"
 
 namespace Running
 {
@@ -11,6 +12,10 @@ namespace Running
 		virtual ~Application();
 
 		void Run();
+		
+	private:
+		std::unique_ptr<Window> _window;
+		bool _running = true;
 	};
 
 	// To be defined in client
