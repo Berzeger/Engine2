@@ -5,3 +5,7 @@
 	path = Running/vendor/GLFW
 	url = https://github.com/glfw/glfw.git
 	ignore = dirty
+[submodule "Running/vendor/ImGui"]
+	path = Running/vendor/ImGui
+	url = https://github.com/ocornut/imgui
+	ignore = dirty
