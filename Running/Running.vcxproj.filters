@@ -28,9 +28,6 @@
     <ClInclude Include="src\Running\EntryPoint.h">
       <Filter>Running</Filter>
     </ClInclude>
-    <ClInclude Include="src\Running\EnumBitwiseOperations.h">
-      <Filter>Running</Filter>
-    </ClInclude>
     <ClInclude Include="src\Running\Events\ApplicationEvent.h">
       <Filter>Running\Events</Filter>
     </ClInclude>
@@ -56,6 +53,7 @@
       <Filter>Running</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
+    <ClInclude Include="src\Running\ImGui\ImGuiLayer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -74,5 +72,6 @@
       <Filter>Running</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
+    <ClCompile Include="src\Running\ImGui\ImGuiLayer.cpp" />
   </ItemGroup>
 </Project>

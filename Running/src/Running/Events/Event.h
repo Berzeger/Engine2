@@ -1,8 +1,6 @@
 #pragma once
 #include "Running/Core.h"
 
-#include "Running/EnumBitwiseOperations.h"
-
 namespace Running
 {
 	enum class EventType
@@ -14,7 +12,7 @@ namespace Running
 		MouseButtonPressed, MouseButtonReleased, MouseMoved, MouseScrolled
 	};
 
-	enum class EventCategory
+	enum EventCategory
 	{
 		None = 0,
 		EventCategoryApplication = BIT(0),
@@ -28,7 +26,7 @@ namespace Running
 								virtual EventType GetEventType() const override { return GetStaticType(); } \
 								virtual const char* GetName() const override { return #type; }
 
-#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return static_cast<int>(category); }
+#define EVENT_CLASS_CATEGORY(category) virtual int GetCategoryFlags() const override { return category; }
 
 	class RUNNING_API Event
 	{
