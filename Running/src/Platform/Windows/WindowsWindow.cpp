@@ -5,6 +5,8 @@
 #include "Running/Events/KeyEvent.h"
 #include "Running/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+
 namespace Running
 {
 	static bool s_glfwInitialized = false;
@@ -40,13 +42,17 @@ namespace Running
 		if (!s_glfwInitialized)
 		{
 			int success = glfwInit();
-			RUNNING_CORE_ASSERT(success, "Could not initialize GLFW!");
+			RUNNING_CORE_ASSERT(success, "Failed to initialize GLFW!");
 			glfwSetErrorCallback(GLFWErrorCallback);
 			s_glfwInitialized = true;
 		}
 
 		_window = glfwCreateWindow((int)props.Width, (int)props.Height, _data.Title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_window);
+
+		int status = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+		RUNNING_CORE_ASSERT(status, "Failed to initialize Glad!");
+
 		glfwSetWindowUserPointer(_window, &_data);
 		SetVSync(true);
 

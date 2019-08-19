@@ -59,7 +59,8 @@ project "Running"
 		defines
 		{
 			"RUNNING_PLATFORM_WINDOWS",
-			"RUNNING_BUILD_DLL"
+			"RUNNING_BUILD_DLL",
+			"GLFW_INCLUDE_NONE"
 		}
 		
 		postbuildcommands
