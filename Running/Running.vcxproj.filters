@@ -43,6 +43,12 @@
     <ClInclude Include="src\Running\Events\MouseEvent.h">
       <Filter>Running\Events</Filter>
     </ClInclude>
+    <ClInclude Include="src\Running\Layer.h">
+      <Filter>Running</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\LayerStack.h">
+      <Filter>Running</Filter>
+    </ClInclude>
     <ClInclude Include="src\Running\Log.h">
       <Filter>Running</Filter>
     </ClInclude>
@@ -50,8 +56,6 @@
       <Filter>Running</Filter>
     </ClInclude>
     <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Running\Layer.h" />
-    <ClInclude Include="src\Running\LayerStack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp">
@@ -60,11 +64,15 @@
     <ClCompile Include="src\Running\Application.cpp">
       <Filter>Running</Filter>
     </ClCompile>
+    <ClCompile Include="src\Running\Layer.cpp">
+      <Filter>Running</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Running\LayerStack.cpp">
+      <Filter>Running</Filter>
+    </ClCompile>
     <ClCompile Include="src\Running\Log.cpp">
       <Filter>Running</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp" />
-    <ClCompile Include="src\Running\Layer.cpp" />
-    <ClCompile Include="src\Running\LayerStack.cpp" />
   </ItemGroup>
 </Project>
