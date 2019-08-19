@@ -32,8 +32,6 @@ namespace Running
 
 	class RUNNING_API Event
 	{
-		friend class EventDispatcher;
-
 	public:
 		virtual EventType GetEventType() const = 0;
 		virtual const char* GetName() const = 0;
@@ -45,8 +43,7 @@ namespace Running
 			return GetCategoryFlags() & static_cast<int>(category);
 		}
 
-	protected:
-		bool _handled = false;
+		bool Handled;
 	};
 
 	class EventDispatcher
@@ -65,8 +62,8 @@ namespace Running
 		{
 			if (_event.GetEventType() == T::GetStaticType())
 			{
-				_event._handled = fn(*(T*)&_event);
-				return _event._handled;
+				_event.Handled = fn(*(T*)&_event);
+				return _event.Handled;
 			}
 
 			return false;

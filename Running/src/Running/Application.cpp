@@ -18,6 +18,16 @@ namespace Running
 
 	}
 
+	void Application::PushLayer(Layer* layer)
+	{
+		_layerStack.PushLayer(layer);
+	}
+
+	void Application::PushOverlay(Layer* layer)
+	{
+		_layerStack.PushOverlay(layer);
+	}
+
 	void Application::OnEvent(Event& e)
 	{
 		EventDispatcher dispatcher(e);
@@ -25,6 +35,15 @@ namespace Running
 		{
 			return OnWindowClose(event);
 		});
+
+		for (auto it = _layerStack.end(); it != _layerStack.begin(); )
+		{
+			(*--it)->OnEvent(e);
+			if (e.Handled)
+			{
+				break;
+			}
+		}
 
 		RUNNING_CORE_TRACE("{0}", e);
 	}
@@ -41,6 +60,12 @@ namespace Running
 		{
 			glClearColor(1, 0, 1, 1);
 			glClear(GL_COLOR_BUFFER_BIT);
+
+			for (Layer* layer : _layerStack)
+			{
+				layer->OnUpdate();
+			}
+
 			_window->OnUpdate();
 		}
 	}

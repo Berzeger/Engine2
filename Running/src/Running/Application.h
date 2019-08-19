@@ -1,10 +1,11 @@
 #pragma once
-#include "Core.h"
-#include "Log.h"
-#include "Window.h"
-#include "Events/ApplicationEvent.h"
-#include "Events/KeyEvent.h"
-#include "Events/MouseEvent.h"
+#include "Running/Core.h"
+#include "Running/Log.h"
+#include "Running/Window.h"
+#include "Running/Events/ApplicationEvent.h"
+#include "Running/Events/KeyEvent.h"
+#include "Running/Events/MouseEvent.h"
+#include "Running/LayerStack.h"
 
 namespace Running
 {
@@ -18,11 +19,15 @@ namespace Running
 
 		void OnEvent(Event& e);
 		
+		void PushLayer(Layer* layer);
+		void PushOverlay(Layer* layer);
+
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> _window;
 		bool _running = true;
+		LayerStack _layerStack;
 	};
 
 	// To be defined in client
