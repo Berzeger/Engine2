@@ -4,7 +4,7 @@
 
 namespace Running
 {
-	class ImGuiLayer : public Layer
+	class RUNNING_API ImGuiLayer : public Layer
 	{
 	public:
 		ImGuiLayer();
@@ -13,5 +13,8 @@ namespace Running
 		void OnEvent(Event& e) override;
 		void OnAttach() override;
 		void OnDetach() override;
+
+	private:
+		float _time;
 	};
 }

@@ -22,12 +22,16 @@ namespace Running
 		void PushLayer(Layer* layer);
 		void PushOverlay(Layer* layer);
 
+		static inline Application& Get() { return *s_instance; }
+		inline Window& GetWindow() { return *_window; }
+
 	private:
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> _window;
 		bool _running = true;
 		LayerStack _layerStack;
+		static Application* s_instance;
 	};
 
 	// To be defined in client

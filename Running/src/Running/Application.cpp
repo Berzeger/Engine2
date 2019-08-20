@@ -4,8 +4,13 @@
 
 namespace Running
 {
+	Application* Application::s_instance = nullptr;
+
 	Application::Application()
 	{
+		RUNNING_CORE_ASSERT(!s_instance, "Application already exists!");
+		s_instance = this;
+
 		_window = std::unique_ptr<Window>(Window::Create());
 		_window->SetEventCallback([&](Event& e)
 		{
@@ -21,11 +26,13 @@ namespace Running
 	void Application::PushLayer(Layer* layer)
 	{
 		_layerStack.PushLayer(layer);
+		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		_layerStack.PushOverlay(layer);
+		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)

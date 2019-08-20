@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "ImGuiLayer.h"
 #include "imgui.h"
+#include "Running/Application.h"
 // temp
 #include "glfw/glfw3.h"
 #include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
@@ -19,7 +20,23 @@ namespace Running
 
 	void ImGuiLayer::OnUpdate()
 	{
+		Application& app = Application::Get();
 
+		ImGuiIO& io = ImGui::GetIO();
+		io.DisplaySize = ImVec2(app.GetWindow().GetWidth(), app.GetWindow().GetHeight());
+
+		float time = (float)glfwGetTime();
+		io.DeltaTime = _time > 0.0f ? (time - _time) : (1.0f / 60.0f);
+		_time = time;
+
+		ImGui_ImplOpenGL3_NewFrame();
+		ImGui::NewFrame();
+
+		static bool show = true;
+		ImGui::ShowDemoWindow(&show);
+
+		ImGui::Render();
+		ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
 	}
 
 	void ImGuiLayer::OnEvent(Event& e)
@@ -29,7 +46,8 @@ namespace Running
 
 	void ImGuiLayer::OnAttach()
 	{
-		ImGui::CreateContext();
+		ImGuiContext* context = ImGui::CreateContext();
+		ImGui::SetCurrentContext(context);
 		ImGui::StyleColorsDark();
 
 		ImGuiIO& io = ImGui::GetIO();
