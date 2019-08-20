@@ -3,7 +3,7 @@
 #include "imgui.h"
 // temp
 #include "glfw/glfw3.h"
-#include <gl/GL.h>
+#include "Platform/OpenGL/ImGuiOpenGLRenderer.h"
 
 namespace Running
 {
@@ -33,7 +33,6 @@ namespace Running
 		ImGui::StyleColorsDark();
 
 		ImGuiIO& io = ImGui::GetIO();
-		io.BackendRendererName = "imgui_impl_opengl3";
 		io.BackendFlags |= ImGuiBackendFlags_HasMouseCursors;
 		io.BackendFlags |= ImGuiBackendFlags_HasSetMousePos;
 
@@ -59,15 +58,9 @@ namespace Running
 		io.KeyMap[ImGuiKey_V] = GLFW_KEY_V;
 		io.KeyMap[ImGuiKey_X] = GLFW_KEY_X;
 		io.KeyMap[ImGuiKey_Y] = GLFW_KEY_Y;
-		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;		
-		
-		char g_GlslVersionString[32] = "#version 410\n";
-		
-		// Make a dummy GL call (we don't actually need the result)
-		// IF YOU GET A CRASH HERE: it probably means that you haven't initialized the OpenGL function loader used by this code.
-		// Desktop OpenGL 3/4 need a function loader. See the IMGUI_IMPL_OPENGL_LOADER_xxx explanation above.
-		GLint current_texture;
-		glGetIntegerv(GL_TEXTURE_BINDING_2D, &current_texture);
+		io.KeyMap[ImGuiKey_Z] = GLFW_KEY_Z;
+
+		ImGui_ImplOpenGL3_Init("#version 410");
 	}
 
 	void ImGuiLayer::OnDetach()
