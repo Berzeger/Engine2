@@ -101,6 +101,13 @@ namespace Running
 				}
 		});
 
+		glfwSetCharCallback(_window, [](GLFWwindow* window, unsigned codepoint) 
+		{
+			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
+			KeyTypedEvent event(codepoint);
+			data.EventCallback(event);
+		});
+
 		glfwSetMouseButtonCallback(_window, [](GLFWwindow* window, int button, int action, int mods) 
 		{
 			WindowData& data = *(WindowData*)glfwGetWindowUserPointer(window);
