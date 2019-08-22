@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Running.h" />
     <ClInclude Include="src\Running\Application.h" />
@@ -160,6 +161,7 @@
     <ClInclude Include="src\Running\Events\KeyEvent.h" />
     <ClInclude Include="src\Running\Events\MouseEvent.h" />
     <ClInclude Include="src\Running\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Running\Input.h" />
     <ClInclude Include="src\Running\Layer.h" />
     <ClInclude Include="src\Running\LayerStack.h" />
     <ClInclude Include="src\Running\Log.h" />
@@ -168,6 +170,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Running\Application.cpp" />
     <ClCompile Include="src\Running\ImGui\ImGuiLayer.cpp" />
@@ -192,4 +195,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>
