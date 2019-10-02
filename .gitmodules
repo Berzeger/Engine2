@@ -8,6 +8,7 @@
 [submodule "Running/vendor/ImGui"]
 	path = Running/vendor/ImGui
 	url = https://github.com/ocornut/imgui
+	branch = docking
 	ignore = dirty
 [submodule "Running/vendor/glm"]
 	path = Running/vendor/glm
