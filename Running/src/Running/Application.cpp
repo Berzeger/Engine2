@@ -17,6 +17,9 @@ namespace Running
 		{
 			OnEvent(e);
 		});
+
+		_imGuiLayer = new ImGuiLayer();
+		PushOverlay(_imGuiLayer);
 	}
 
 	Application::~Application()
@@ -73,6 +76,13 @@ namespace Running
 			{
 				layer->OnUpdate();
 			}
+
+			_imGuiLayer->Begin();
+			for (Layer* layer : _layerStack)
+			{
+				layer->OnImGuiRender();
+			}
+			_imGuiLayer->End();
 
 			_window->OnUpdate();
 		}

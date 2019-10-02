@@ -7,6 +7,8 @@
 #include "Running/Events/MouseEvent.h"
 #include "Running/LayerStack.h"
 
+#include "Running/ImGui/ImGuiLayer.h"
+
 namespace Running
 {
 	class RUNNING_API Application
@@ -29,6 +31,7 @@ namespace Running
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> _window;
+		ImGuiLayer* _imGuiLayer;
 		bool _running = true;
 		LayerStack _layerStack;
 		static Application* s_instance;
