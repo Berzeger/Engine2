@@ -1,6 +1,8 @@
 project "ImGui"
 	kind "StaticLib"
 	language "C++"
+	cppdialect "C++17"
+	staticruntime "on"
 	
 	location("../../vendor/ImGui")
 
@@ -23,8 +25,6 @@ project "ImGui"
 	
 	filter "system:windows"
 		systemversion "latest"
-		cppdialect "C++17"
-		staticruntime "Off"
 	
 	filter "configurations:Debug"
 		runtime "Debug"

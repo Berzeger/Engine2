@@ -1,6 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
+	staticruntime "on"
 
 	location("../../vendor/GLFW")
 
@@ -20,10 +21,8 @@ project "GLFW"
 		"../../vendor/GLFW/src/window.c"
 	}
 	filter "system:linux"
-		pic "On"
-
+		pic "on"
 		systemversion "latest"
-		staticruntime "On"
 
 		files
 		{
@@ -45,10 +44,7 @@ project "GLFW"
 		}
 
 	filter "system:windows"
-		buildoptions { "-std=c11", "-lgdi32" }
-
 		systemversion "latest"
-		staticruntime "On"
 
 		files
 		{

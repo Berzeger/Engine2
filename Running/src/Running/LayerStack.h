@@ -5,7 +5,7 @@
 
 namespace Running
 {
-	class RUNNING_API LayerStack
+	class LayerStack
 	{
 	public:
 		LayerStack();

@@ -1,6 +1,7 @@
 project "Glad"
 	kind "StaticLib"
 	language "C"
+	staticruntime "on"
 
 	location("../../vendor/Glad")
 
@@ -21,7 +22,6 @@ project "Glad"
 	
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On"
 
 	filter "configurations:Debug"
 		runtime "Debug"

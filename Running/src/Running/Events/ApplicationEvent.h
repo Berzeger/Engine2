@@ -4,7 +4,7 @@
 namespace Running
 {
 	// -----------------------------------------------
-	class RUNNING_API WindowResizeEvent : public Event
+	class WindowResizeEvent : public Event
 	{
 	public:
 		WindowResizeEvent(unsigned width, unsigned height) :
@@ -32,7 +32,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API WindowCloseEvent : public Event
+	class WindowCloseEvent : public Event
 	{
 	public:
 		WindowCloseEvent() {}
@@ -42,7 +42,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API AppTickEvent : public Event
+	class AppTickEvent : public Event
 	{
 		AppTickEvent() {}
 
@@ -51,7 +51,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API AppUpdateEvent : public Event
+	class AppUpdateEvent : public Event
 	{
 	public:
 		AppUpdateEvent() {}
@@ -61,7 +61,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API AppRenderEvent : public Event
+	class AppRenderEvent : public Event
 	{
 	public:
 		AppRenderEvent() {}

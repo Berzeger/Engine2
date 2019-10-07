@@ -4,7 +4,7 @@
 namespace Running
 {
 	// -----------------------------------------------
-	class RUNNING_API MouseMovedEvent : public Event
+	class MouseMovedEvent : public Event
 	{
 	public:
 		MouseMovedEvent(float x, float y) :
@@ -31,7 +31,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API MouseScrolledEvent : public Event
+	class MouseScrolledEvent : public Event
 	{
 	public:
 		MouseScrolledEvent(float xOffset, float yOffset) :
@@ -58,7 +58,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API MouseButtonEvent : public Event
+	class MouseButtonEvent : public Event
 	{
 	public:
 		inline int GetMouseButton() const { return _button; }
@@ -73,7 +73,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API MouseButtonPressedEvent : public MouseButtonEvent
+	class MouseButtonPressedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonPressedEvent(int button) :
@@ -91,7 +91,7 @@ namespace Running
 	};
 
 	// -----------------------------------------------
-	class RUNNING_API MouseButtonReleasedEvent : public MouseButtonEvent
+	class MouseButtonReleasedEvent : public MouseButtonEvent
 	{
 	public:
 		MouseButtonReleasedEvent(int button) :
