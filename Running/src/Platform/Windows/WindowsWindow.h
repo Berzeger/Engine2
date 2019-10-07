@@ -2,6 +2,7 @@
 
 #include "Running/Window.h"
 #include <GLFW/glfw3.h>
+#include "Running/Renderer/GraphicsContext.h"
 
 namespace Running
 {
@@ -28,6 +29,7 @@ namespace Running
 		virtual void Shutdown();
 	private:
 		GLFWwindow* _window;
+		GraphicsContext* _context;
 
 		struct WindowData
 		{
