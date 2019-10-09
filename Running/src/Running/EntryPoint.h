@@ -1,7 +1,10 @@
 #pragma once
 
+extern "C" {
+	_declspec(dllexport) DWORD NvOptimusEnablement = 0x00000001;
+}
+
 #ifdef RUNNING_PLATFORM_WINDOWS
-#include "Running.h"
 
 extern Running::Application* Running::CreateApplication();
 
@@ -16,5 +19,5 @@ int main(int argc, char ** argv)
 	delete app;
 }
 #else
-	#error Running only supports Windows!
+	#error Running Engine only supports Windows!
 #endif
