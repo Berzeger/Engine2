@@ -34,6 +34,9 @@ namespace Running
 		ImGuiLayer* _imGuiLayer;
 		bool _running = true;
 		LayerStack _layerStack;
+
+		unsigned int _vertexArray, _vertexBuffer, _indexBuffer;
+
 		static Application* s_instance;
 	};
 
