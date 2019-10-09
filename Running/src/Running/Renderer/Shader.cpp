@@ -69,56 +69,55 @@ namespace Running
 		// Vertex and fragment shaders are successfully compiled.
 		// Now time to link them together into a program.
 		// Get a program object.
-		GLuint program = glCreateProgram();
+		_rendererId = glCreateProgram();
 
 		// Attach our shaders to our program
-		glAttachShader(program, vertexShader);
-		glAttachShader(program, fragmentShader);
+		glAttachShader(_rendererId, vertexShader);
+		glAttachShader(_rendererId, fragmentShader);
 
 		// Link our program
-		glLinkProgram(program);
+		glLinkProgram(_rendererId);
 
 		// Note the different functions here: glGetProgram* instead of glGetShader*.
 		GLint isLinked = 0;
-		glGetProgramiv(program, GL_LINK_STATUS, (int *)&isLinked);
+		glGetProgramiv(_rendererId, GL_LINK_STATUS, (int *)&isLinked);
 		if (isLinked == GL_FALSE)
 		{
 			GLint maxLength = 0;
-			glGetProgramiv(program, GL_INFO_LOG_LENGTH, &maxLength);
+			glGetProgramiv(_rendererId, GL_INFO_LOG_LENGTH, &maxLength);
 
 			// The maxLength includes the NULL character
 			std::vector<GLchar> infoLog(maxLength);
-			glGetProgramInfoLog(program, maxLength, &maxLength, &infoLog[0]);
+			glGetProgramInfoLog(_rendererId, maxLength, &maxLength, &infoLog[0]);
 
 			// We don't need the program anymore.
-			glDeleteProgram(program);
+			glDeleteProgram(_rendererId);
 			// Don't leak shaders either.
 			glDeleteShader(vertexShader);
 			glDeleteShader(fragmentShader);
 
-			// Use the infoLog as you see fit.
-
-			// In this simple program, we'll just leave
-			return;
+			RUNNING_CORE_ERROR("{0}", infoLog.data());
+			RUNNING_CORE_ASSERT(false, "Shader link failure!");
 		}
 
 		// Always detach shaders after a successful link.
-		glDetachShader(program, vertexShader);
-		glDetachShader(program, fragmentShader);
+		glDetachShader(_rendererId, vertexShader);
+		glDetachShader(_rendererId, fragmentShader);
 	}
 
 	Shader::~Shader()
 	{
+		glDeleteProgram(_rendererId);
 
 	}
 
 	void Shader::Bind() const
 	{
-
+		glUseProgram(_rendererId);
 	}
 
 	void Shader::Unbind() const
 	{
-
+		glUseProgram(0);
 	}
 }

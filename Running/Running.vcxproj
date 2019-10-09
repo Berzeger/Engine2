@@ -159,6 +159,7 @@
     <ClInclude Include="src\Running\Log.h" />
     <ClInclude Include="src\Running\MouseButtonCodes.h" />
     <ClInclude Include="src\Running\Renderer\GraphicsContext.h" />
+    <ClInclude Include="src\Running\Renderer\Shader.h" />
     <ClInclude Include="src\Running\Window.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -540,6 +541,7 @@
     <ClCompile Include="src\Running\Layer.cpp" />
     <ClCompile Include="src\Running\LayerStack.cpp" />
     <ClCompile Include="src\Running\Log.cpp" />
+    <ClCompile Include="src\Running\Renderer\Shader.cpp" />
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>

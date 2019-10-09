@@ -8,6 +8,7 @@
 #include "Running/LayerStack.h"
 
 #include "Running/ImGui/ImGuiLayer.h"
+#include "Running/Renderer/Shader.h"
 
 namespace Running
 {
@@ -36,6 +37,7 @@ namespace Running
 		LayerStack _layerStack;
 
 		unsigned int _vertexArray, _vertexBuffer, _indexBuffer;
+		std::unique_ptr<Shader> _shader;
 
 		static Application* s_instance;
 	};
