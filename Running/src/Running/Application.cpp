@@ -68,7 +68,7 @@ namespace Running
 			}
 		)";
 
-		_shader = std::make_unique<Shader>(vertexSrc, fragmentSrc);
+		_shader.reset(Shader::Create(vertexSrc, fragmentSrc));
 	}
 
 	Application::~Application()

@@ -1221,6 +1221,7 @@
     <ClInclude Include="src\Running\Renderer\Buffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlBuffer.h" />
     <ClInclude Include="src\Running\Renderer\Renderer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGlShader.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGlContext.cpp">
@@ -1259,5 +1260,6 @@
     <ClCompile Include="src\Running\Renderer\Buffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Running\Renderer\Renderer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGlShader.cpp" />
   </ItemGroup>
 </Project>
