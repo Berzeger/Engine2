@@ -10,6 +10,8 @@
 #include "Running/ImGui/ImGuiLayer.h"
 #include "Running/Renderer/Shader.h"
 
+#include "Running/Renderer/Buffer.h"
+
 namespace Running
 {
 	class Application
@@ -36,8 +38,10 @@ namespace Running
 		bool _running = true;
 		LayerStack _layerStack;
 
-		unsigned int _vertexArray, _vertexBuffer, _indexBuffer;
+		unsigned int _vertexArray;
 		std::unique_ptr<Shader> _shader;
+		std::unique_ptr<VertexBuffer> _vertexBuffer;
+		std::unique_ptr<IndexBuffer> _indexBuffer;
 
 		static Application* s_instance;
 	};

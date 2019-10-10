@@ -1218,6 +1218,9 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
+    <ClInclude Include="src\Running\Renderer\Buffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGlBuffer.h" />
+    <ClInclude Include="src\Running\Renderer\Renderer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGlContext.cpp">
@@ -1253,5 +1256,8 @@
     <ClCompile Include="src\pch.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="src\Running\Renderer\Buffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp" />
+    <ClCompile Include="src\Running\Renderer\Renderer.cpp" />
   </ItemGroup>
 </Project>
