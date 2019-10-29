@@ -48,7 +48,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Platform\OpenGL\OpenGlBuffer.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
     <ClInclude Include="src\Platform\OpenGL\OpenGlContext.h">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Platform\OpenGL\OpenGlShader.h">
       <Filter>src\Platform\OpenGL</Filter>
     </ClInclude>
     <ClInclude Include="src\Platform\Windows\WindowsInput.h">
@@ -102,7 +108,13 @@
     <ClInclude Include="src\Running\MouseButtonCodes.h">
       <Filter>src\Running</Filter>
     </ClInclude>
+    <ClInclude Include="src\Running\Renderer\Buffer.h">
+      <Filter>src\Running\Renderer</Filter>
+    </ClInclude>
     <ClInclude Include="src\Running\Renderer\GraphicsContext.h">
+      <Filter>src\Running\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Running\Renderer\Renderer.h">
       <Filter>src\Running\Renderer</Filter>
     </ClInclude>
     <ClInclude Include="src\Running\Renderer\Shader.h">
@@ -1218,13 +1230,15 @@
     <ClInclude Include="vendor\glm\glm\vector_relational.hpp">
       <Filter>vendor\glm\glm</Filter>
     </ClInclude>
-    <ClInclude Include="src\Running\Renderer\Buffer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGlBuffer.h" />
-    <ClInclude Include="src\Running\Renderer\Renderer.h" />
-    <ClInclude Include="src\Platform\OpenGL\OpenGlShader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
     <ClCompile Include="src\Platform\OpenGL\OpenGlContext.cpp">
+      <Filter>src\Platform\OpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Platform\OpenGL\OpenGlShader.cpp">
       <Filter>src\Platform\OpenGL</Filter>
     </ClCompile>
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp">
@@ -1251,15 +1265,17 @@
     <ClCompile Include="src\Running\Log.cpp">
       <Filter>src\Running</Filter>
     </ClCompile>
+    <ClCompile Include="src\Running\Renderer\Buffer.cpp">
+      <Filter>src\Running\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Running\Renderer\Renderer.cpp">
+      <Filter>src\Running\Renderer</Filter>
+    </ClCompile>
     <ClCompile Include="src\Running\Renderer\Shader.cpp">
       <Filter>src\Running\Renderer</Filter>
     </ClCompile>
     <ClCompile Include="src\pch.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\Running\Renderer\Buffer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp" />
-    <ClCompile Include="src\Running\Renderer\Renderer.cpp" />
-    <ClCompile Include="src\Platform\OpenGL\OpenGlShader.cpp" />
   </ItemGroup>
 </Project>

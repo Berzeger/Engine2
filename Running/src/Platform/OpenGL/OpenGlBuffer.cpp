@@ -29,6 +29,16 @@ namespace Running
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 
+	void OpenGlVertexBuffer::SetLayout(const BufferLayout& layout)
+	{
+		_layout = layout;
+	}
+
+	const BufferLayout& OpenGlVertexBuffer::GetLayout() const
+	{
+		return _layout;
+	}
+
 	// ------------------- Index Buffer ------------------------
 
 	OpenGlIndexBuffer::OpenGlIndexBuffer(uint32_t* indices, uint32_t count) :
