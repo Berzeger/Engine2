@@ -1,18 +1,17 @@
 #pragma once
 
+#include "RenderCommand.h"
+
 namespace Running
 {
-	enum class RendererApi
-	{
-		None = 0,
-		OpenGL = 1
-	};
-
 	class Renderer
 	{
 	public:
-		inline static RendererApi GetApi() { return s_rendererApi; }
-	private:
-		static RendererApi s_rendererApi;
+		static void BeginScene();
+		static void EndScene();
+
+		static void Submit(const std::shared_ptr<VertexArray>& vertexArray);
+
+		inline static RendererApi::Api GetApi() { return RendererApi::GetApi(); }
 	};
 }

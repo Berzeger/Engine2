@@ -9,11 +9,11 @@ namespace Running
 	{
 		switch (Renderer::GetApi())
 		{
-			case RendererApi::None:
+			case RendererApi::Api::None:
 				RUNNING_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
 					
-			case RendererApi::OpenGL:
+			case RendererApi::Api::OpenGl:
 				std::shared_ptr<VertexBuffer> openGlVertexBuffer;
 				openGlVertexBuffer.reset(new OpenGlVertexBuffer(vertices, size));
 				return openGlVertexBuffer;
@@ -27,11 +27,11 @@ namespace Running
 	{
 		switch (Renderer::GetApi())
 		{
-			case RendererApi::None:
+			case RendererApi::Api::None:
 				RUNNING_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 				return nullptr;
 
-			case RendererApi::OpenGL:
+			case RendererApi::Api::OpenGl:
 				std::shared_ptr<IndexBuffer> openGlIndexBuffer;
 				openGlIndexBuffer.reset(new OpenGlIndexBuffer(indices, size));
 				return openGlIndexBuffer;

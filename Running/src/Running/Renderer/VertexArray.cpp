@@ -10,11 +10,11 @@ namespace Running {
 	{
 		switch (Renderer::GetApi())
 		{
-		case RendererApi::None:
+		case RendererApi::Api::None:
 			RUNNING_CORE_ASSERT(false, "RendererApi::None is currently not supported!");
 			return nullptr;
 
-		case RendererApi::OpenGL:
+		case RendererApi::Api::OpenGl:
 			std::shared_ptr<VertexArray> openGlVertexArray;
 			openGlVertexArray.reset(new OpenGlVertexArray());
 			return openGlVertexArray;

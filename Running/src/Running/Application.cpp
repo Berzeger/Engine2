@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "Application.h"
-#include <glad/glad.h>
 #include "Input.h"
+#include "Renderer/RenderCommand.h"
+#include "Renderer/Renderer.h"
 
 namespace Running
 {
@@ -125,12 +126,15 @@ namespace Running
 	{
 		while (_running)
 		{
-			glClearColor(0.1f, 0.1f, 0.1f, 1);
-			glClear(GL_COLOR_BUFFER_BIT);
+			RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
+			RenderCommand::Clear();
+
+			Renderer::BeginScene();
 
 			_shader->Bind();
-			_vertexArray->Bind();
-			glDrawElements(GL_TRIANGLES, _vertexArray->GetIndexBuffer()->GetCount(), GL_UNSIGNED_INT, nullptr);
+			Renderer::Submit(_vertexArray);
+
+			Renderer::EndScene();
 
 			for (Layer* layer : _layerStack)
 			{

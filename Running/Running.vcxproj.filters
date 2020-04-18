@@ -1232,6 +1232,9 @@
     </ClInclude>
     <ClInclude Include="src\Running\Renderer\VertexArray.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlVertexArray.h" />
+    <ClInclude Include="src\Running\Renderer\RendererApi.h" />
+    <ClInclude Include="src\Running\Renderer\RenderCommand.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGlRendererApi.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp">
@@ -1281,5 +1284,8 @@
     </ClCompile>
     <ClCompile Include="src\Running\Renderer\VertexArray.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGlVertexArray.cpp" />
+    <ClCompile Include="src\Running\Renderer\RendererApi.cpp" />
+    <ClCompile Include="src\Running\Renderer\RenderCommand.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGlRendererApi.cpp" />
   </ItemGroup>
 </Project>
