@@ -5,7 +5,7 @@
 
 namespace Running
 {
-	VertexBuffer* VertexBuffer::Create(float* vertices, uint32_t size)
+	std::shared_ptr<VertexBuffer> VertexBuffer::Create(float* vertices, uint32_t size)
 	{
 		switch (Renderer::GetApi())
 		{
@@ -14,14 +14,16 @@ namespace Running
 				return nullptr;
 					
 			case RendererApi::OpenGL:
-				return new OpenGlVertexBuffer(vertices, size);
+				std::shared_ptr<VertexBuffer> openGlVertexBuffer;
+				openGlVertexBuffer.reset(new OpenGlVertexBuffer(vertices, size));
+				return openGlVertexBuffer;
 		}
 
 		RUNNING_CORE_ASSERT(false, "Unknown RendererApi!");
 		return nullptr;
 	}
 
-	IndexBuffer* IndexBuffer::Create(uint32_t* indices, uint32_t size)
+	std::shared_ptr<IndexBuffer> IndexBuffer::Create(uint32_t* indices, uint32_t size)
 	{
 		switch (Renderer::GetApi())
 		{
@@ -30,7 +32,9 @@ namespace Running
 				return nullptr;
 
 			case RendererApi::OpenGL:
-				return new OpenGlIndexBuffer(indices, size);
+				std::shared_ptr<IndexBuffer> openGlIndexBuffer;
+				openGlIndexBuffer.reset(new OpenGlIndexBuffer(indices, size));
+				return openGlIndexBuffer;
 		}
 
 		RUNNING_CORE_ASSERT(false, "Unknown RendererApi!");

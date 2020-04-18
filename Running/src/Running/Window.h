@@ -1,7 +1,6 @@
 #pragma once
 
-#include "pch.h"
-
+#include <sstream>
 #include "Running/Events/Event.h"
 
 namespace Running

@@ -11,6 +11,7 @@
 #include "Running/Renderer/Shader.h"
 
 #include "Running/Renderer/Buffer.h"
+#include "Running/Renderer/VertexArray.h"
 
 namespace Running
 {
@@ -38,10 +39,8 @@ namespace Running
 		bool _running = true;
 		LayerStack _layerStack;
 
-		unsigned int _vertexArray;
-		std::unique_ptr<Shader> _shader;
-		std::unique_ptr<VertexBuffer> _vertexBuffer;
-		std::unique_ptr<IndexBuffer> _indexBuffer;
+		std::shared_ptr<Shader> _shader;
+		std::shared_ptr<VertexArray> _vertexArray;
 
 		static Application* s_instance;
 	};

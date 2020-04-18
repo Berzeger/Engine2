@@ -143,6 +143,7 @@
     <ClInclude Include="src\Platform\OpenGL\OpenGlBuffer.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlContext.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlShader.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGlVertexArray.h" />
     <ClInclude Include="src\Platform\Windows\WindowsInput.h" />
     <ClInclude Include="src\Platform\Windows\WindowsWindow.h" />
     <ClInclude Include="src\Running.h" />
@@ -164,6 +165,7 @@
     <ClInclude Include="src\Running\Renderer\GraphicsContext.h" />
     <ClInclude Include="src\Running\Renderer\Renderer.h" />
     <ClInclude Include="src\Running\Renderer\Shader.h" />
+    <ClInclude Include="src\Running\Renderer\VertexArray.h" />
     <ClInclude Include="src\Running\Window.h" />
     <ClInclude Include="src\pch.h" />
     <ClInclude Include="vendor\glm\glm\common.hpp" />
@@ -539,6 +541,7 @@
     <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGlContext.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGlShader.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGlVertexArray.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsInput.cpp" />
     <ClCompile Include="src\Platform\Windows\WindowsWindow.cpp" />
     <ClCompile Include="src\Running\Application.cpp" />
@@ -553,6 +556,7 @@
     <ClCompile Include="src\pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Running\Renderer\VertexArray.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
@@ -568,4 +572,4 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
-</Project> 
+</Project>
