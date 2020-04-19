@@ -41,7 +41,7 @@ namespace Running
 			return GetCategoryFlags() & static_cast<int>(category);
 		}
 
-		bool Handled;
+		bool Handled = false;
 	};
 
 	class EventDispatcher

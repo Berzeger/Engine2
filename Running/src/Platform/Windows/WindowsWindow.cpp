@@ -96,8 +96,8 @@ namespace Running
 					KeyPressedEvent event(key, 1);
 					data.EventCallback(event);
 					break;
-					}
 				}
+			}
 		});
 
 		glfwSetCharCallback(_window, [](GLFWwindow* window, unsigned codepoint) 

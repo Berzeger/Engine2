@@ -5,9 +5,10 @@
 class ExampleLayer : public Running::Layer
 {
 public:
-	ExampleLayer() : 
+	ExampleLayer() :
 		Layer("Example"),
-		_camera(-1.6f, 1.6f, -0.9f, 0.9f)
+		_camera(-1.6f, 1.6f, -0.9f, 0.9f),
+		_cameraPosition(0.0f)
 	{
 		_vertexArray = Running::VertexArray::Create();
 
@@ -70,10 +71,38 @@ public:
 
 	void OnUpdate() override
 	{
+		if (Running::Input::IsKeyPressed(RUNNING_KEY_LEFT))
+		{
+			_cameraPosition.x -= _cameraMoveSpeed;
+		}
+		else if (Running::Input::IsKeyPressed(RUNNING_KEY_RIGHT))
+		{
+			_cameraPosition.x += _cameraMoveSpeed;
+		}
+
+		if (Running::Input::IsKeyPressed(RUNNING_KEY_DOWN))
+		{
+			_cameraPosition.y -= _cameraMoveSpeed;
+		}
+		else if (Running::Input::IsKeyPressed(RUNNING_KEY_UP))
+		{
+			_cameraPosition.y += _cameraMoveSpeed;
+		}
+
+		if (Running::Input::IsKeyPressed(RUNNING_KEY_A))
+		{
+			_cameraRotation += _cameraRotationSpeed;
+		}
+		else if (Running::Input::IsKeyPressed(RUNNING_KEY_D))
+		{
+			_cameraRotation -= _cameraRotationSpeed;
+		}
+
 		Running::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
 		Running::RenderCommand::Clear();
 
-		_camera.SetRotation(45.0f);
+		_camera.SetPosition(_cameraPosition);
+		_camera.SetRotation(_cameraRotation);
 
 		Running::Renderer::BeginScene(_camera);
 
@@ -81,12 +110,17 @@ public:
 
 		Running::Renderer::EndScene();
 	}
-
+	
 private:
 	std::shared_ptr<Running::Shader> _shader;
 	std::shared_ptr<Running::VertexArray> _vertexArray;
 
 	Running::OrthographicCamera _camera;
+	glm::vec3 _cameraPosition;
+	float _cameraMoveSpeed = 0.1f;
+
+	float _cameraRotation = 0.0f;
+	float _cameraRotationSpeed = 2.0f;
 };
 
 class Sandbox : public Running::Application
