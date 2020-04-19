@@ -12,6 +12,7 @@
 
 #include "Running/Renderer/Buffer.h"
 #include "Running/Renderer/VertexArray.h"
+#include "Renderer/OrthographicCamera.h"
 
 namespace Running
 {
@@ -41,6 +42,8 @@ namespace Running
 
 		std::shared_ptr<Shader> _shader;
 		std::shared_ptr<VertexArray> _vertexArray;
+
+		OrthographicCamera _camera;
 
 		static Application* s_instance;
 	};

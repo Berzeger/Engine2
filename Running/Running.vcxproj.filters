@@ -1235,6 +1235,7 @@
     <ClInclude Include="src\Running\Renderer\RendererApi.h" />
     <ClInclude Include="src\Running\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlRendererApi.h" />
+    <ClInclude Include="src\Running\Renderer\OrthographicCamera.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp">
@@ -1287,5 +1288,6 @@
     <ClCompile Include="src\Running\Renderer\RendererApi.cpp" />
     <ClCompile Include="src\Running\Renderer\RenderCommand.cpp" />
     <ClCompile Include="src\Platform\OpenGL\OpenGlRendererApi.cpp" />
+    <ClCompile Include="src\Running\Renderer\OrthographicCamera.cpp" />
   </ItemGroup>
 </Project>

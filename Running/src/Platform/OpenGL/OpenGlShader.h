@@ -11,7 +11,9 @@ namespace Running
 		virtual ~OpenGlShader();
 
 		virtual void Bind() const override;
-		virtual void Unbind() const override;
+		virtual void Unbind() const override; 
+		
+		virtual void UploadUniformMat4(const std::string& name, const glm::mat4& matrix) override;
 
 	private:
 		// uniquely identifies the object inside OpenGL
