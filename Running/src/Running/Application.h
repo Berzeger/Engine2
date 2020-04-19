@@ -40,11 +40,6 @@ namespace Running
 		bool _running = true;
 		LayerStack _layerStack;
 
-		std::shared_ptr<Shader> _shader;
-		std::shared_ptr<VertexArray> _vertexArray;
-
-		OrthographicCamera _camera;
-
 		static Application* s_instance;
 	};
 
