@@ -1,18 +1,11 @@
 #pragma once
 #include "Running/Core.h"
-#include "Running/Log.h"
 #include "Running/Window.h"
+
 #include "Running/Events/ApplicationEvent.h"
-#include "Running/Events/KeyEvent.h"
-#include "Running/Events/MouseEvent.h"
 #include "Running/LayerStack.h"
 
 #include "Running/ImGui/ImGuiLayer.h"
-#include "Running/Renderer/Shader.h"
-
-#include "Running/Renderer/Buffer.h"
-#include "Running/Renderer/VertexArray.h"
-#include "Renderer/OrthographicCamera.h"
 
 namespace Running
 {

@@ -1,5 +1,6 @@
 #pragma once
 #include "Running/Core.h"
+#include <functional>
 
 namespace Running
 {
