@@ -10,8 +10,8 @@ namespace Running
 		{
 		}
 		
-		float GetSeconds() const { return _time; }
-		float GetMilliseconds() const { return _time * 1000.0f; }
+		inline float GetSeconds() const { return _time; }
+		inline float GetMilliseconds() const { return _time * 1000.0f; }
 		// todo: override +=
 	private:
 		float _time;
