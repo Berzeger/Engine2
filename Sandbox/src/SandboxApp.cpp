@@ -69,33 +69,33 @@ public:
 		_shader.reset(Running::Shader::Create(vertexSrc, fragmentSrc));
 	}
 
-	void OnUpdate() override
+	void OnUpdate(Running::Timestep deltaTime) override
 	{
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_LEFT))
 		{
-			_cameraPosition.x -= _cameraMoveSpeed;
+			_cameraPosition.x -= _cameraMoveSpeed * deltaTime.GetSeconds();
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_RIGHT))
 		{
-			_cameraPosition.x += _cameraMoveSpeed;
+			_cameraPosition.x += _cameraMoveSpeed * deltaTime.GetSeconds();
 		}
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_DOWN))
 		{
-			_cameraPosition.y -= _cameraMoveSpeed;
+			_cameraPosition.y -= _cameraMoveSpeed * deltaTime.GetSeconds();
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_UP))
 		{
-			_cameraPosition.y += _cameraMoveSpeed;
+			_cameraPosition.y += _cameraMoveSpeed * deltaTime.GetSeconds();
 		}
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_A))
 		{
-			_cameraRotation += _cameraRotationSpeed;
+			_cameraRotation += _cameraRotationSpeed * deltaTime.GetSeconds();
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_D))
 		{
-			_cameraRotation -= _cameraRotationSpeed;
+			_cameraRotation -= _cameraRotationSpeed * deltaTime.GetSeconds();
 		}
 
 		Running::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
@@ -117,10 +117,10 @@ private:
 
 	Running::OrthographicCamera _camera;
 	glm::vec3 _cameraPosition;
-	float _cameraMoveSpeed = 0.1f;
+	float _cameraMoveSpeed = 10.0f;
 
 	float _cameraRotation = 0.0f;
-	float _cameraRotationSpeed = 2.0f;
+	float _cameraRotationSpeed = 200.0f;
 };
 
 class Sandbox : public Running::Application

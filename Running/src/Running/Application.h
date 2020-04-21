@@ -6,6 +6,7 @@
 #include "Running/LayerStack.h"
 
 #include "Running/ImGui/ImGuiLayer.h"
+#include "Running/Core/Timestep.h"
 
 namespace Running
 {
@@ -32,6 +33,7 @@ namespace Running
 		ImGuiLayer* _imGuiLayer;
 		bool _running = true;
 		LayerStack _layerStack;
+		float _lastFrameTime = 0.0f;
 
 		static Application* s_instance;
 	};

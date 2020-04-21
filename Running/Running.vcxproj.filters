@@ -1236,6 +1236,7 @@
     <ClInclude Include="src\Running\Renderer\RenderCommand.h" />
     <ClInclude Include="src\Platform\OpenGL\OpenGlRendererApi.h" />
     <ClInclude Include="src\Running\Renderer\OrthographicCamera.h" />
+    <ClInclude Include="src\Running\Core\Timestep.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Platform\OpenGL\OpenGlBuffer.cpp">
