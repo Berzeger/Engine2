@@ -69,33 +69,35 @@ public:
 		_shader.reset(Running::Shader::Create(vertexSrc, fragmentSrc));
 	}
 
-	void OnUpdate(Running::Timestep deltaTime) override
+	void OnUpdate(Running::Timestep dt) override
 	{
+		RUNNING_CLIENT_TRACE("Delta time: {0}s ({1}ms)", dt.GetSeconds(), dt.GetMilliseconds());
+
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_LEFT))
 		{
-			_cameraPosition.x -= _cameraMoveSpeed * deltaTime.GetSeconds();
+			_cameraPosition.x -= _cameraMoveSpeed * dt;
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_RIGHT))
 		{
-			_cameraPosition.x += _cameraMoveSpeed * deltaTime.GetSeconds();
+			_cameraPosition.x += _cameraMoveSpeed * dt;
 		}
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_DOWN))
 		{
-			_cameraPosition.y -= _cameraMoveSpeed * deltaTime.GetSeconds();
+			_cameraPosition.y -= _cameraMoveSpeed * dt;
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_UP))
 		{
-			_cameraPosition.y += _cameraMoveSpeed * deltaTime.GetSeconds();
+			_cameraPosition.y += _cameraMoveSpeed * dt;
 		}
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_A))
 		{
-			_cameraRotation += _cameraRotationSpeed * deltaTime.GetSeconds();
+			_cameraRotation += _cameraRotationSpeed * dt;
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_D))
 		{
-			_cameraRotation -= _cameraRotationSpeed * deltaTime.GetSeconds();
+			_cameraRotation -= _cameraRotationSpeed * dt;
 		}
 
 		Running::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });

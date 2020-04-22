@@ -73,12 +73,12 @@ namespace Running
 		while (_running)
 		{
 			float time = (float)glfwGetTime(); // todo: Platform::GetTime(), don't depend on GLFW
-			Timestep timestep = time - _lastFrameTime;
+			Timestep dt = time - _lastFrameTime;
 			_lastFrameTime = time;
 
 			for (Layer* layer : _layerStack)
 			{
-				layer->OnUpdate(timestep);
+				layer->OnUpdate(dt);
 			}
 
 			_imGuiLayer->Begin();

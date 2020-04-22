@@ -13,7 +13,7 @@ namespace Running
 
 		virtual void OnAttach() {}
 		virtual void OnDetach() {}
-		virtual void OnUpdate(Timestep deltaTime) {}
+		virtual void OnUpdate(Timestep dt) {}
 		virtual void OnImGuiRender() {}
 		virtual void OnEvent(Event& e) {}
 
