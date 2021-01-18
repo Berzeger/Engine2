@@ -38,7 +38,30 @@ public:
 		_triangleVertexArray->SetIndexBuffer(triangleIndexBuffer);
 
 		// square
-		_blueVertexArray = Running::VertexArray::Create();
+		_squareVertexArray = Running::VertexArray::Create();
+
+		float squareVertices[4 * 3] = {
+			-0.5f, -0.5f, 0.0f,
+			 0.5f, -0.5f, 0.0f,
+			 0.5f,  0.5f, 0.0f,
+			-0.5f,  0.5f, 0.0f
+		};
+
+		std::shared_ptr<Running::VertexBuffer> squareVertexBuffer = Running::VertexBuffer::Create(squareVertices, sizeof(squareVertices));
+
+		Running::BufferLayout squareLayout = {
+			{ "a_Position", Running::ShaderDataType::Float3 }
+		};
+
+		squareVertexBuffer->SetLayout(squareLayout);
+		_squareVertexArray->AddVertexBuffer(squareVertexBuffer);
+
+		uint32_t squareIndices[6] = { 0, 1, 2, 0, 3, 2 };
+		std::shared_ptr<Running::IndexBuffer> squareIndexBuffer = Running::IndexBuffer::Create(squareIndices, sizeof(squareIndices) / sizeof(uint32_t));
+
+		_squareVertexArray->SetIndexBuffer(squareIndexBuffer);
+
+		// shaders
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -141,20 +164,20 @@ public:
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_J))
 		{
-			_squarePosition += _squareMoveSpeed * dt;
+			_squarePosition.x -= _squareMoveSpeed * dt;
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_L))
 		{
-			_squarePosition -= _squareMoveSpeed * dt;
+			_squarePosition.x += _squareMoveSpeed * dt;
 		}
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_I))
 		{
-			_squarePosition += _squareMoveSpeed * dt;
+			_squarePosition.y += _squareMoveSpeed * dt;
 		}
 		else if (Running::Input::IsKeyPressed(RUNNING_KEY_K))
 		{
-			_squarePosition -= _squareMoveSpeed * dt;
+			_squarePosition.y -= _squareMoveSpeed * dt;
 		}
 
 		Running::RenderCommand::SetClearColor({ 0.1f, 0.1f, 0.1f, 1.0f });
@@ -167,17 +190,17 @@ public:
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), _squarePosition);
 
+		Running::Renderer::Submit(_blueShader, _squareVertexArray, transform);
 		Running::Renderer::Submit(_shader, _triangleVertexArray);
-		Running::Renderer::Submit(_blueShader, _triangleVertexArray);
 
 		Running::Renderer::EndScene();
 	}
-	
+
 private:
 	std::shared_ptr<Running::Shader> _shader;
 	std::shared_ptr<Running::Shader> _blueShader;
 	std::shared_ptr<Running::VertexArray> _triangleVertexArray;
-	std::shared_ptr<Running::VertexArray> _blueVertexArray;
+	std::shared_ptr<Running::VertexArray> _squareVertexArray;
 
 	Running::OrthographicCamera _camera;
 	glm::vec3 _cameraPosition;
