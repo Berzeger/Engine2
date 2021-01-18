@@ -133,7 +133,7 @@ public:
 
 	void OnUpdate(Running::Timestep dt) override
 	{
-		RUNNING_CLIENT_TRACE("Delta time: {0}s ({1}ms)", dt.GetSeconds(), dt.GetMilliseconds());
+		//RUNNING_CLIENT_TRACE("Delta time: {0}s ({1}ms)", dt.GetSeconds(), dt.GetMilliseconds());
 
 		if (Running::Input::IsKeyPressed(RUNNING_KEY_LEFT))
 		{
@@ -188,10 +188,20 @@ public:
 
 		Running::Renderer::BeginScene(_camera);
 
-		glm::mat4 transform = glm::translate(glm::mat4(1.0f), _squarePosition);
+		glm::mat4 scale = glm::scale(glm::mat4(1.0), glm::vec3(0.1f));
 
-		Running::Renderer::Submit(_blueShader, _squareVertexArray, transform);
-		Running::Renderer::Submit(_shader, _triangleVertexArray);
+		for (int x = 0; x < 20; ++x)
+		{
+			for (int y = 0; y < 20; ++y)
+			{
+				glm::vec3 pos(x * 0.11f, y * 0.11f, 0.0f);
+				glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
+				Running::Renderer::Submit(_blueShader, _squareVertexArray, transform);
+			}
+		}
+
+		//Running::Renderer::Submit(_blueShader, _squareVertexArray, transform);
+		//Running::Renderer::Submit(_shader, _triangleVertexArray);
 
 		Running::Renderer::EndScene();
 	}
