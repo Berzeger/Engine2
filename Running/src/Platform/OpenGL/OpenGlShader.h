@@ -14,6 +14,7 @@ namespace Running
 		virtual void Unbind() const override; 
 		
 		virtual void UploadUniformMat4(const std::string& name, const glm::mat4& matrix) override;
+		virtual void UploadUniformFloat4(const std::string& name, const glm::vec4 vec) override;
 
 	private:
 		// uniquely identifies the object inside OpenGL
