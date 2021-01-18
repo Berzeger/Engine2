@@ -13,29 +13,32 @@ public:
 		_cameraPosition(0.0f),
 		_squarePosition(0.0f)
 	{
-		_vertexArray = Running::VertexArray::Create();
-		_blueVertexArray = Running::VertexArray::Create();
+		// triangle
+		_triangleVertexArray = Running::VertexArray::Create();
 
-		float vertices[3 * 7] = {
+		float triangleVertices[3 * 7] = {
 			-0.5f, -0.5f, 0.0f, 0.8f, 0.2f, 0.8f, 1.0f,
 			 0.5f, -0.5f, 0.0f, 0.2f, 0.3f, 0.8f, 1.0f,
 			 0.0f,  0.5f, 0.0f, 0.8f, 0.8f, 0.2f, 1.0f
 		};
 
-		std::shared_ptr<Running::VertexBuffer> vertexBuffer = Running::VertexBuffer::Create(vertices, sizeof(vertices));
+		std::shared_ptr<Running::VertexBuffer> triangleVertexBuffer = Running::VertexBuffer::Create(triangleVertices, sizeof(triangleVertices));
 
 		Running::BufferLayout layout = {
 			{ "a_Position", Running::ShaderDataType::Float3 },
 			{ "a_Color", Running::ShaderDataType::Float4 }
 		};
 
-		vertexBuffer->SetLayout(layout);
-		_vertexArray->AddVertexBuffer(vertexBuffer);
+		triangleVertexBuffer->SetLayout(layout);
+		_triangleVertexArray->AddVertexBuffer(triangleVertexBuffer);
 
 		uint32_t indices[3] = { 0, 1, 2 };
-		std::shared_ptr<Running::IndexBuffer> indexBuffer = Running::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
+		std::shared_ptr<Running::IndexBuffer> triangleIndexBuffer = Running::IndexBuffer::Create(indices, sizeof(indices) / sizeof(uint32_t));
 
-		_vertexArray->SetIndexBuffer(indexBuffer);
+		_triangleVertexArray->SetIndexBuffer(triangleIndexBuffer);
+
+		// square
+		_blueVertexArray = Running::VertexArray::Create();
 
 		std::string vertexSrc = R"(
 			#version 330 core
@@ -164,8 +167,8 @@ public:
 
 		glm::mat4 transform = glm::translate(glm::mat4(1.0f), _squarePosition);
 
-		Running::Renderer::Submit(_shader, _vertexArray);
-		Running::Renderer::Submit(_blueShader, _vertexArray);
+		Running::Renderer::Submit(_shader, _triangleVertexArray);
+		Running::Renderer::Submit(_blueShader, _triangleVertexArray);
 
 		Running::Renderer::EndScene();
 	}
@@ -173,7 +176,7 @@ public:
 private:
 	std::shared_ptr<Running::Shader> _shader;
 	std::shared_ptr<Running::Shader> _blueShader;
-	std::shared_ptr<Running::VertexArray> _vertexArray;
+	std::shared_ptr<Running::VertexArray> _triangleVertexArray;
 	std::shared_ptr<Running::VertexArray> _blueVertexArray;
 
 	Running::OrthographicCamera _camera;
