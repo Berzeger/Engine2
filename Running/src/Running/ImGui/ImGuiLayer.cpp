@@ -14,7 +14,8 @@
 namespace Running
 {
 	ImGuiLayer::ImGuiLayer() :
-		Layer("ImGuiLayer")
+		Layer("ImGuiLayer"),
+		_time(0.0f)
 	{
 	}
 	
@@ -91,7 +92,5 @@ namespace Running
 
 	void ImGuiLayer::OnImGuiRender()
 	{
-		static bool show = true;
-		ImGui::ShowDemoWindow(&show);
 	}
 }

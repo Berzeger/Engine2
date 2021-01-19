@@ -17,6 +17,3 @@
 #include "Running/Renderer/OrthographicCamera.h"
 
 #include "Running/Core/Timestep.h"
-
-// Entry point
-#include "Running/EntryPoint.h"
