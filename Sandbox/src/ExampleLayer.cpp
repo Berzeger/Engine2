@@ -1,5 +1,6 @@
 #include "ExampleLayer.h"
 #include "imgui.h"
+#include "Platform/OpenGL/OpenGlShader.h"
 #include <glm/gtc/type_ptr.hpp>
 
 ExampleLayer::ExampleLayer() :
@@ -190,6 +191,8 @@ void ExampleLayer::OnUpdate(Running::Timestep dt)
 	glm::vec4 redColor(0.8f, 0.2f, 0.2f, 1.0f);
 	glm::vec4 blueColor(0.2f, 0.2f, 0.8f, 1.0f);
 
+	std::dynamic_pointer_cast<Running::OpenGlShader>(_flatColorShader)->Bind();
+
 	for (int x = 0; x < 20; ++x)
 	{
 		for (int y = 0; y < 20; ++y)
@@ -198,11 +201,11 @@ void ExampleLayer::OnUpdate(Running::Timestep dt)
 			glm::mat4 transform = glm::translate(glm::mat4(1.0f), pos) * scale;
 			if (y % 2 == 0)
 			{
-				_flatColorShader->UploadUniformFloat4("u_Color", _redSquareColor);
+				std::dynamic_pointer_cast<Running::OpenGlShader>(_flatColorShader)->UploadUniformFloat4("u_Color", _redSquareColor);
 			}
 			else
 			{
-				_flatColorShader->UploadUniformFloat4("u_Color", _blueSquareColor);
+				std::dynamic_pointer_cast<Running::OpenGlShader>(_flatColorShader)->UploadUniformFloat4("u_Color", _blueSquareColor);
 			}
 			Running::Renderer::Submit(_flatColorShader, _squareVertexArray, transform);
 		}

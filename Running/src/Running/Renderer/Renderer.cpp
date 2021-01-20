@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Renderer.h"
+#include "Platform/OpenGL/OpenGlShader.h"
 
 namespace Running
 {
@@ -17,8 +18,8 @@ namespace Running
 	void Renderer::Submit(const std::shared_ptr<Shader>& shader, const std::shared_ptr<VertexArray>& vertexArray, const glm::mat4& transform)
 	{
 		shader->Bind();
-		shader->UploadUniformMat4("u_ViewProjectionMatrix", s_sceneData->ViewProjectionMatrix);
-		shader->UploadUniformMat4("u_Transform", transform);
+		std::dynamic_pointer_cast<OpenGlShader>(shader)->UploadUniformMat4("u_ViewProjectionMatrix", s_sceneData->ViewProjectionMatrix);
+		std::dynamic_pointer_cast<OpenGlShader>(shader)->UploadUniformMat4("u_Transform", transform);
 
 		vertexArray->Bind();
 		RenderCommand::DrawIndexed(vertexArray);
